@@ -1,2 +1,6 @@
-# postgresql-training
-Postgresql for developers - performance optimizations and common pitfalls
+# PostgreSQL for developers
+## Performance Optimizations and Common Pitfalls
+
+
+
+@crodriguesPT

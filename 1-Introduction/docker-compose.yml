@@ -1,0 +1,30 @@
+version: '3.1'
+
+volumes:
+  pgdata:
+    driver: local
+  pgadmin: 
+    driver: local
+
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: secret
+    command: '-c config_file=/var/lib/postgresql/data/postgresql.conf'
+    volumes:
+      - pgdata:/var/lib/postgresql
+    ports:
+       - 5432:5432    
+
+  pgadmin:
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: pgtraining@test.com
+      PGADMIN_DEFAULT_PASSWORD: secret
+    volumes:
+      - pgadmin:/var/lib/pgadmin
+    ports:
+      - 8080:80
